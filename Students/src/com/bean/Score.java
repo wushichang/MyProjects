@@ -1,5 +1,6 @@
 package com.bean;
-//gitÌá½»²Ù×÷commit and push
+//gitÃŒÃ¡Â½Â»Â²Ã™Ã—Ã·commit and push
+//i am come back
 public class Score {
 	private String subjectName;
 	private int score;
