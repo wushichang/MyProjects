@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <!-- namespace 注明sql语句映射的命名空间，避免重名 -->
+<mapper namespace="com.yidu.dao.RoleInfoInter">
+	<select id="roles" parameterType="RoleInfo" resultType="RoleInfo">
+		SELECT * FROM RoleInfo
+	</select>
+	<select id="selectRoleIdByUserId" resultType="int">
+		select roleId from USERROLE where USERID=#{userId}
+	</select>
+	<insert id="insertIntoRoleMenu">
+			insert into ROLEMENU values((select max(id) from rolemenu)+1,#{roleId},#{menuId})
+	</insert>
+	<update id="deleteFromRoleMenu">
+		delete from roleMenu where roleId=#{roleId}
+	</update>
+</mapper>

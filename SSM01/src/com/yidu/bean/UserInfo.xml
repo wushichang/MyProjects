@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <!-- namespace 注明sql语句映射的命名空间，避免重名 -->
+<mapper namespace="com.yidu.dao.UserInfoInter">
+	<select id="login" parameterType="UserInfo" resultType="UserInfo">
+		SELECT * FROM UserInfo where userName=#{userName} and userPass=#{userPass}
+	</select>
+	
+</mapper>

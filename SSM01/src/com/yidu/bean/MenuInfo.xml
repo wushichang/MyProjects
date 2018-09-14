@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <!-- namespace 注明sql语句映射的命名空间，避免重名 -->
+<mapper namespace="com.yidu.dao.MenuInfoInter">
+	<select id="selectMenuInfosByUserId" resultType="MenuInfo">
+		select * FROM MenuInfo m where m.menuId 
+		in(select menuId from rolemenu where 
+		roleId=(select roleId from userrole where userId=1)) order by m.menuId
+	</select>
+	<select id="selectAll" resultType="MenuInfo">
+		select * from menuInfo order by menuId
+	</select>
+	<select id="selectMenuInfosByRoleId" resultType="MenuInfo">
+		select * from menuInfo m where m.menuId 
+		in(select menuId from roleMenu where roleId=#{roleId}) 
+		order by m.menuId
+	</select>
+</mapper>
